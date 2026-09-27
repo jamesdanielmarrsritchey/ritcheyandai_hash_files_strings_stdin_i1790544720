@@ -1,0 +1,34 @@
+# How To Compile
+
+These instructions compile the application from source on Debian 13.
+
+## Install The Compiler
+
+(
+sudo apt update
+sudo apt install g++
+)
+
+## Compile
+
+Run the following command from the main project folder. The resulting binary is written to the project's "/Demo" folder, as required by the project layout.
+
+(
+g++ -std=c++17 -O2 -Wall -Wextra -pedantic Source/main.cpp Source/functions/*.cpp -I Source/headers -o Demo/application.lin
+)
+
+The ".lin" file extension is not required by Linux. This project recommends ".lin", ".linexe", and ".linex" as filename extensions for Linux builds, with ".lin" as the default recommendation used by these instructions. These are naming conventions recommended by this project and are not standard practice within the Linux community.
+
+## Run
+
+For example, the following uses the default SHA3-512 algorithm and default hexadecimal format:
+
+(
+./Demo/application.lin --input_string "Hello World"
+)
+
+For the full command-line help content:
+
+(
+./Demo/application.lin --help
+)

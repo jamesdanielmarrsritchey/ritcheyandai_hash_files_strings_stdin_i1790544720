@@ -1,0 +1,139 @@
+# Ritchey Markup Language v5
+
+Ritchey Markup Language is a markup language designed to be readable by humans as plain-text, while also providing a basic set of clearly defined elements that can be easily detected by software, allowing for conversion into more beautiful documents.
+
+The language is heavily built around the concept of using comments, and selectors. A comment is markup inside curved () brackets. A selector is text inside curly {} brackets related to a comment.
+
+RULES:
+- Use the elements defined by the language.
+
+ELEMENTS:
+- Headings are indicated with #, ##, ###, ####, #####, or ###### at the start of the line, followed by a space, and then a string (e.g., "# Example Heading 1").
+- Paragraphs are text, which may contain inline elements.
+- Images may occur on their own line, or inline. They denoted using curved bracket comments containing either a relative path to an image (e.g., "(IMAGE: ./example.jpg)"), an absolute path to an image (e.g., "(IMAGE: /path/to/example.jpg)"), or a URL to an image (e.g., "(IMAGE: https://example.com/example.jpg)"), along with the label "IMAGE: ".
+- Comments are indicated by starting a line with "// ". Anything else on the line is considered the comment content.
+- Page breaks are indicated with a line containing "--". This means new page.
+- Horizonal rules are indicated with a line containing "---". This means a line across the page.
+- Font formatting such as bold, italic, strike through, underlined are indicated using a selector around the text it applies to, and a comment afterwards (e.g., "This is {some text} (STYLE: Underlined). There MUST be a space between the selector and the comment. Multiple formatting options can be listed (e.g., "(STYLE: Underlined, Bold)"). While not recommended, this can be used to store very detailed formatting such as font-family, font-size, or text colour. This is mostly useful for documents rarely read in markup form, and converted to other formats by applications creating complexly styled documents.
+- Links are indicated using a selector around the text it applies to, and a comment afterwards (e.g., "This is {some text} (https://example.com). There MUST be a space between the selector and the comment. Multiple links can be on the same line.
+- Tabs are not indicated with markup, they are just normal tabs, but they are a recognized element. Programs converting from markup to other formats should capture them, even if they aren't preserved.
+- Blockquotes are indicated with a line consisting of a double quote at the start and a line consisting of a double quote at the end. Alternatively, the double quotes can be paired with a unique ID. This ID must start with "&", and the remainder of it can only be comprised of lowercase letters, and numbers. Using a crc32 of the block content is recommended, if an ID is going to be used. No markup within a blockquote is processed!
+- Blockmessages are indicated with a line consisting of a ( bracket at the start and a line consisting of a ) bracket end. Alternatively, the brackets can be paired with a unique ID. This ID must start with "&", and the remainder of it can only be comprised of lowercase letters, and numbers. Using a crc32 of the block content is recommended, if an ID is going to be used. No markup within a blockmessage is processed! A blockmessage works just like a blockquote, but is meant for content that isn't a quote, such as paraphrases, code, and examples.
+- Blockstyleds are indicated with a line consisting of a [ bracket at the start and a line consisting of a ] bracket end. Alternatively, the brackets can be paired with a unique ID. This ID must start with "&", and the remainder of it can only be comprised of lowercase letters, and numbers. Using a crc32 of the block content is recommended, if an ID is going to be used. Markup within a blockstyled is processed! It useful for important notices (e.g., caution messages), or examples where text benefits from different formatting. However, it is not limited to these uses.
+- Item labels are indicated by ending a line with a colon (e.g., "LABEL 1:", "Label 2:"). While it is recommended for item labels to be all capitals, this isn't a requirement. Item labels are typically used before other elements like lists, or blocks.
+- Label-Value sets are indicated by starting a line with a string that doesn't contain any lowercase letters, followed by ": ", and then a string of any characters until the end of the line (e.g., "LABEL 44: This is a value.").
+- List labels are indicated by ending a line with a colon, containing no lowercase letters, and starting either a dash, or space(s) and then a dash, (e.g., "- LABEL 1:", " - Label 2:"). The "- ", and any space before it, are not part of the label!
+- Flat lists are indicated by a line starting with "| " and ending with " |". Each item in the list has a " | " delimiter. For example "| Item 1 | Item 2 |".
+- Dot lists are indicated by lines that start with a dash, followed by a space, and then a string. There may be spaces before the dash, which indicates sublists.
+- Numbered lists are indicated by a line starting with a whole number, followed by a period, followed by a space, and then a string. There can be spaces before the whole number, which indicates it's a sublist entry.
+- Tags are indicated by a line starting with "[" and ending with "]". Each tag consists of a set of [] square brackets with a string inside (e.g., "[Tag 1]", "[Tag 1][Tag 2][Tag 3]").
+- Tables are indicated by a line starting with "|| " and ending with " ||". Each item in the row has a " || " delimiter. For example "|| Item 1 || Item 2 ||". Tables can consist of a single row, or multiple rows (making them a multi-line element). Cells may optionally have extra spaces added to align rows. Cells can be empty. Cells used for column or row headings have a value starting with "#" (there can be spaces in front), but no space between the # and the value (e.g., " #Heading " is valid, but "# Heading" is just treated as a regular value).
+- Special comments are indicated with () curved bracket style comments that contain a string with no lowercase letters (e.g., "(EXPIRED)"). There can be multiple sets within a line.
+
+PROCESSING SUGGESTIONS:
+- When converting from Ritchey Markup Language to other formats, it's recommended to process all inline elements first, and then deal with multi-line elements.
+
+EXAMPLE RMLv5 MARKUP:
+"&123
+# Heading 1
+
+This is a paragraph.
+
+## Heading 2
+
+(IMAGE: ./image_1.jpg)
+
+Below is a comment.
+// This is a comment.
+
+	This line starts with a tab.
+--
+Below is a blockquote.
+"
+Some text.
+Some more text.
+"
+
+Below is a blockmessage
+(
+This is a message.
+
+It works the same as a blockquote, but is meant for things that aren't quotes.
+)
+
+Below is a blockstyled
+[
+This is some text.
+
+However {it contains italicized text} (STYLE: Italic), unlike blockmessages, or blockquotes.
+]
+
+Below is a blockstyled
+[&a12i5f
+This is some text.
+
+However {it contains italicized text} (STYLE: Italic), unlike blockmessages, or blockquotes.
+]&a12i5f
+
+### Heading 3
+
+LABEL FOR A STRING: First Last
+LABEL 2: 1 (111) 111-1111 (PREFERRED)
+LABEL 3: yourname@domain
+
+#### Heading 4
+
+LABEL FOR A DOT-LIST:
+- SUB LABEL 1:
+ - This is a sublist 2 entry
+ - This is another sublist 2 entry
+- This is a list entry
+ - SUB LABEL 2:
+  - This is a level 3 entry
+  - This is another level 3 entry
+
+LABEL FOR A NUMBERED LIST:
+1. Something
+2. Something
+ 1. Something
+ 2. Something
+3. Something
+4. Something
+--
+TAGS:
+[Tag 1][Tag 2][Tag 3]
+
+##### Heading 5
+
+This is some text with a special comment (PREFERRED) in it. This is an additional example (EXPIRED).
+
+(IMAGE: ./Business Woman 1 v1.jpg)
+--
+(IMAGE: ./Business Woman 2 v1.webp)
+--
+(IMAGE: ./Business Woman 3 v1.jpeg)
+--
+(IMAGE: ./Business Woman 4 v1.png)
+
+###### Heading 6
+
+More text goes here. This {next part} (https://example.com/1) is also a hyperlink. As is {this part }(https://example.com/2) too. {This text however is bold} (STYLE: Bold). {This text is in italics} (STYLE: Italic). Lastly, {this is some text that is underlined} (STYLE: Underline). Also, {text can be striked through} (STYLE: Strikethrough).
+--
+# Test Heading 1
+
+FLAT LIST:
+| Item 1 | Item 2 | Item 3 | Item 4 | Item 5 | Item 6 | Item 7 | Item 8 |
+
+TABLE:
+||        || #Cars  || #Trucks || #SUVs    ||
+|| #Honda || Accord ||         || Civic    ||
+|| #Ford  || Focus  || F-150   || Explorer ||
+
+## Heading 2 B
+
+A paragraph.
+
+### Heading 3 B
+
+This is a paragraph.
+"&123

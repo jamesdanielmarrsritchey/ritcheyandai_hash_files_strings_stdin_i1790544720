@@ -1,0 +1,11 @@
+# History
+
+Timeline:
+- Project started September 27, 2026.
+- Version 0.1 completed September 27, 2026.
+- Version 0.2 completed September 27, 2026.
+- Version 0.3 completed September 27, 2026.
+- Version 0.4 completed September 27, 2026.
+
+Highlighted Changes:
+- 

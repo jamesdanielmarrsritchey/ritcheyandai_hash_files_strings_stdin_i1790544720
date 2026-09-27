@@ -1,0 +1,9 @@
+# Plans
+
+A list of things to potentially add, or change in future releases.
+
+HIGH PRIORITY:
+- 
+
+LOW PRIORITY:
+- 

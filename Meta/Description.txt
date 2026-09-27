@@ -1,0 +1,3 @@
+# Description
+
+Ritchey&AI Hash Files Strings Stdin is a C++ command-line application for calculating CRC32, MD5, SHA-1, SHA-256, SHA-512, SHA3-256, or SHA3-512 checksums from a file, a command-line string, or standard input. SHA3-512 is the default algorithm. Checksums can be returned as hexadecimal, Base64, raw binary bytes, a textual binary representation, or a comma-separated decimal representation, with hexadecimal as the default. The application can optionally write a checksum record to a requested file using a configurable delimiter while protecting existing files unless overwrite is explicitly enabled. Hexadecimal output with the default two-space delimiter preserves the conventional checksum-file record layout used by compatible checksum tools.

@@ -1,0 +1,10 @@
+# Ritchey Versioning Scheme v1
+
+Ritchey Versioning Scheme (RVS) is a naming style for the version numbers used on project releases.
+
+Rules:
+- Version numbers for Stable releases are whole numbers (e.g., "1").
+- Version numbers for Working Draft releases use the number from the previous Stable release, and add a decimal (e.g., "1.1", "1.2", etc). If there has never been a stable release zero is used (e.g., "0.1", "0.2", etc).
+- Version numbers for Work In Progress releases use the previous Stable, or Working Draft release number (whichever is newest), and add a second-level decimal. For example, if based off Stable release version 1, a Work In Progress release would be 1.0.1. For example, if based off Working Draft release version 1.1, a Work In Progress release would be 1.1.1.
+- Version numbers increment with each release.
+- There is no maximum number size for any decimal position (e.g., 2.7.3000 is valid).

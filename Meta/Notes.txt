@@ -1,0 +1,7 @@
+# Notes
+
+Useful information about the project.
+
+LIST:
+- This is a Working Draft release. You are advised to vet the code before running it.
+- No compiled binary is included in the release.

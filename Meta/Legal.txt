@@ -1,0 +1,7 @@
+# Legal
+
+Uncopyright © James Daniel Marrs Ritchey.
+
+## Licensing
+
+This project is dedicated to the public domain using the Ritchey Public Domain Dedication v1. A copy of the dedication can be found at "/Meta/License Texts/Ritchey Public Domain Dedication v1.txt".

@@ -1,0 +1,11 @@
+# Ritchey Project Naming Scheme v1
+
+Ritchey Project Naming Scheme (RPNS) is a naming style for projects.
+
+RULES:
+- The name must start with an author label. This is used to distinguish projects from third-party projects that might have a similar name. The author label will typically be the last name of the developer, the name of the company, the username of the developer, or a collection of names combined using & symbols (e.g., "Ritchey", "Ritchey&Marrs"). While not considered an author, the term "AI", or a the specific name of an AI service can be included in the author label to help indicate AI use.
+- The name must contain a base name for the project, which is essentially the name of the project. This goes after the author label.
+- The name must contain an implementation number with an "i" in front (e.g., i3284932). This goes after the base name.
+- The name must contain a version number with a "v" in front (e.g., "v1", "v0.1", "v0.1.1"). This appears at the end of the name.
+- When spelling out the name normally spaces between parts should be used, and capitalization of words should be used in the author label, and the base name (e.g., Ritchey&AI Hello World i3284932 v1).
+- When using the name for the folder containing a project lowercase should be used, underscores should replaces spaces, and "&" should be replaced with "and" (e.g., "ritcheyandai_hello_world_i3284932_v1").

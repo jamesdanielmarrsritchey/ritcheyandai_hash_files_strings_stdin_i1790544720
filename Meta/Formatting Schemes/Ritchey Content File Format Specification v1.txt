@@ -1,0 +1,32 @@
+# Ritchey Content File Format Specification v1
+
+Ritchey Content File Format (RCFF) is a file format for storing instance information for applications, and web applications (e.g., content management systems, web platforms, etc). This specification defines version 1 of the format (Ritchey Configuration File Format v1). They are written the same way as configuration files, but are used for actual content displayed to end users, not configuration information.
+
+RULES:
+- Content files use ".cont" as their file extension, or ".txt".
+- Where possible, content files must capitalize the start of each word in their name (e.g., "Website Name.cont").
+- Content file names must be only letters, and numbers, with the following exceptions:
+ - The file extension can contain periods.
+ - If necessary, spaces can be replaced with underscores. If this is done, words must be all lowercase (e.g., "website_name.cont").
+- Each entry in the content file uses a label, a colon, and then either a single line value, or a multi-line value. A single line value starts with a single space, and then a string. A multi-line value starts with a double-quote on its own line, then has the multi-line string value, and then ends with a double-quote on its own line. Generally the only value that may need to be multi-line is the content value.
+- Each content file must have a name entry (the name of the content file), and a content entry (holds the actual content). It is recommended to have a description entry too, describing what the content file contains, and how that information is used by the project. It is also common to have a destination entry that indicates a path (typically relative to the project folder) to where a file containing the content will be written.
+- Multi-line values generally use double quotes on their own lines to indicate the start and end of a value for an entry. However, if the value may contain such a line itself, IDs can be added to the double quote lines (e.g., ""(124)""). The ID is just a short custom string, wrapped in curved brackets. It can be random, a CRC32, a time-stamp, or something else. Using a CRC32 of the value is recommended. An ID can only contain numbers, and/or lowercase letters. The ID cannot be re-used in the same content file.
+- Content files should be stored in "/Source/Content Files".
+
+EXAMPLE 1:
+"
+Name: Homepage Content
+Description: Contains the default HTML for the homepage to display in its content area.
+Content: <h1>Homepage</h1><div>Welcome!</div>
+"
+
+EXAMPLE 2:
+"
+Name: Homepage Content
+Description: Contains the default HTML for the homepage to display in its content area.
+Content:
+"(a43)
+<h1>Homepage</h1>
+<div>Welcome!</div>
+"(a43)
+"

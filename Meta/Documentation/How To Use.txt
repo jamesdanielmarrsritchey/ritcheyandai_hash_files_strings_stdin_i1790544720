@@ -1,0 +1,29 @@
+# How To Use
+
+The application accepts arguments as name-value pairs in the form "--argument \"value\"".
+
+At least one enabled input source is required. The available input sources are source_file, input_string, and stdin. If more than one enabled input source is supplied, whichever enabled source appears last on the command line is used. The stdin argument is enabled when its value is "true" or "t". Other stdin values are ignored.
+
+The algorithm argument is optional and defaults to SHA3-512. Supported algorithms are CRC32, MD5, SHA-1, SHA-256, SHA-512, SHA3-256, and SHA3-512.
+
+The format argument is optional and defaults to hexadecimal. Supported canonical output formats are hexadecimal, Base64, binary, binary representation, and decimal representation. Binary is the raw digest bytes. Binary representation is text containing eight 0/1 digits for each digest byte. Decimal representation is text containing each digest byte as a decimal value from 0 through 255, separated by commas.
+
+The delimiter argument is optional and only changes destination_file records. It defaults to two spaces. A custom delimiter such as "," is written exactly between the checksum and source fields. The delimiter does not change the checksum written to standard output.
+
+The overwrite argument is optional and defaults to false. An existing destination_file is replaced only when overwrite has the exact value "true". Otherwise, the requested write fails without modifying the existing file.
+
+On success, textual formats are written to standard output followed by a newline. Binary format writes only the raw digest bytes and does not append a newline.
+
+If destination_file is supplied, the application writes one record containing the checksum representation, the selected delimiter, and a source field. For source_file input, the source field is the exact supplied file path. For input_string and stdin input, the source field is "-".
+
+With hexadecimal format and the default two-space delimiter, file-input records for MD5, SHA-1, SHA-256, and SHA-512 use the conventional checksum-file layout and can be checked by compatible third-party tools. For example, a SHA-256 checksum file can be checked with:
+
+(
+sha256sum -c checksums.sha256
+)
+
+Custom delimiters and non-hexadecimal formats are project-supported checksum-file forms, but standard checksum utilities generally will not parse them as their native verification-file format.
+
+If required input is missing, an argument is unknown or malformed, the selected input cannot be read, the algorithm or format is unsupported, or the requested output cannot be safely written, the program writes "FALSE" to standard error and exits with status 1.
+
+The help argument stops normal execution and prints the Content value from "/Source/Content Files/Help.txt".

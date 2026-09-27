@@ -1,0 +1,67 @@
+Name: Help
+Description: Contains the command-line help text displayed when the help argument is used.
+Content:
+"&c293b6a7
+Hash Files Strings Stdin
+
+Usage:
+  ./Demo/application.lin [--algorithm "value"] [--format "value"] [--delimiter "value"] [input source] [optional output]
+
+Arguments:
+  --algorithm "value"
+    Optional. Defaults to sha3-512. Supported canonical values:
+    crc32, md5, sha1, sha256, sha512, sha3-256, sha3-512
+
+  --format "value"
+    Optional. Defaults to hexadecimal. Supported canonical values:
+    hexadecimal, base64, binary, binary representation, decimal representation
+    The aliases hex and hexidecimal are also accepted for hexadecimal.
+    Binary is the raw checksum bytes and is not textual output.
+    Binary representation is a textual sequence of 0/1 digits, eight digits per digest byte.
+    Decimal representation is a comma-separated textual list of digest byte values from 0 through 255.
+
+  --delimiter "value"
+    Optional. Applies only when destination_file is used. Defaults to two spaces, which preserves the conventional hexadecimal checksum-file layout used by compatible checksum tools.
+    A custom delimiter, such as a comma, is written exactly as supplied and generally makes the checksum file incompatible with standard *sum verification tools.
+
+  --source_file "path"
+    Hash the bytes of the specified file.
+
+  --input_string "text"
+    Hash the exact bytes of the supplied command-line string.
+
+  --stdin "true"
+    Hash standard input. The values true and t enable it. Other values are ignored.
+
+  --destination_file "path"
+    Also write a checksum-file record to the specified file.
+
+  --overwrite "true"
+    Optional. Defaults to false. The exact value true permits destination_file to replace an existing file. Other values leave overwrite disabled.
+
+  --help / --help "true"
+    Print this help content and stop without performing normal program execution. The help value itself is ignored.
+
+Input selection:
+  source_file, input_string, and enabled stdin are mutually competing input sources. If more than one is supplied, the last enabled source specified on the command line is used and earlier ones are ignored.
+
+Algorithm aliases:
+  sha-1 is accepted for sha1.
+  sha-256 is accepted for sha256.
+  sha-512 is accepted for sha512.
+  sha3256 and sha3_256 are accepted for sha3-256.
+  sha3512 and sha3_512 are accepted for sha3-512.
+  Algorithm matching is case-insensitive.
+
+Output:
+  On success, the selected checksum representation is written to standard output.
+  Raw binary format writes only the digest bytes and does not append a newline.
+  If destination_file is supplied, one checksum record is written as:
+  <checksum><delimiter><source>
+  The default delimiter is two spaces. For source_file, source is the exact supplied file path. For input_string and stdin, source is the conventional dash marker (-).
+  With hexadecimal format and the default two-space delimiter, MD5, SHA-1, SHA-256, and SHA-512 file records use the conventional layout expected by tools such as md5sum, sha1sum, sha256sum, and sha512sum.
+  Other formats or custom delimiters are project-supported record forms but are not directly checkable by standard checksum tools that require hexadecimal digests and their conventional delimiter.
+
+Errors:
+  On failure, the program writes FALSE to standard error and exits with status 1.
+"&c293b6a7

@@ -1,0 +1,8 @@
+# Ritchey Release Type Scheme v3
+
+Ritchey Release Type Scheme (RRTS) is a classification style for projects.
+
+RELEASE TYPES:
+- "Stable" means a work is ready for use as an end-product.
+- "Working Draft (WD)" means a work seems functional, but is not polished. and has likely not undergone much vetting. These are generally intended for use by the creator, but may also be provided to users where a polished end-product isn't needed. In the case of software, or scripts, they should be vetted by the user before use. Despite the name, the project may not be intended to move beyond this stage, as sometimes this is good enough for the job.
+- "Work In Progress (WIP)" means a work may be incomplete, need testing, or have major issues. It should not be used without vetting, because missing, or untested components could cause unintended behaviors. Despite the name, the project may not be under active development.

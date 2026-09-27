@@ -1,0 +1,9 @@
+# Bugs
+
+A list of select bugs in the project.
+
+HIGH PRIORITY:
+- 
+
+LOW PRIORITY:
+- 

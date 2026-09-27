@@ -1,0 +1,9 @@
+# Meta
+
+Name: Ritchey&AI Hash Files Strings Stdin
+Implementation: 1790544720
+Version: 0.4
+Release Type: Working Draft (WD)
+Long Identifier: Ritchey&AI Hash Files Strings Stdin i1790544720 v0.4
+Short Identifier: R&AIHFSSi1790544720v0.4
+Author: James Daniel Marrs Ritchey

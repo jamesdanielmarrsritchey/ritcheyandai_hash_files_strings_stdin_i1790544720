@@ -1,0 +1,24 @@
+Ritchey Public Domain Dedication v1
+
+Definitions
+
+Any definitions provided within this document overrule any external definitions.
+
+- Creative Work means material this document is regarding.
+- Dedication Author means the legal entities whom created this document.
+- Recipient means a legal entity receiving the Creative Work.
+- Dedicator means the legal entities whom hold Copyright, and related rights, in the Creative Work.
+- Material means material which is not part of the Creative Work, or provided by the Dedicator to the Recipient.
+- Public Domain means a societal resovoir of Material that is no longer protected by Copyright, and related rights, making it freely usable by all members of the society. 
+
+Dedication
+
+The Dedicator hereby irrevocably waives any Copyright, and related rights, in the Creative Work.
+
+Disclaimer
+
+Regardless of any other applicable information, to the maximum extent permitted by applicable laws, the Creative Work is provided as is, without any warranties, guarantees, promises, or representations. The Dedicator will not be liable for loss of any kind, damage of any kind, illness, injury, death, or infringement caused by the Recipient's use of the Creative Work. Any use of the Creative Work is done at the Recipient's own risk.
+
+Meta
+
+The Dedication Author isn't a party to the dedication. The Dedication Author will not be liable for loss of any kind, damage of any kind, illness, injury, death, or infringement caused by use of this dedication by either the Dedicator, or Recipient.

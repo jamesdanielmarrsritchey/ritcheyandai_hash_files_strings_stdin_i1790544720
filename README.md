@@ -1,1 +1,3 @@
-# ritcheyandai_hash_files_strings_stdin_i1790544720
+# Readme
+
+This file is here for compatibility purposes. Read "/Meta/Meta.txt", "/Meta/Description.txt", and "/Meta/Notes.txt" instead.
